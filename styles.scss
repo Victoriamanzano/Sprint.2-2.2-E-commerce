@@ -1,0 +1,68 @@
+$primary:#5265E1;
+$secondary:gray;
+$danger:rgb(233, 4, 145);
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+
+header {
+    background-color: $danger;
+    
+}
+
+button {
+    color: $danger;
+}
+.textheader{
+    color: white;
+    
+    transition: 7s;
+}
+.btn-cart {
+    background: #5265E1;
+}
+li {
+    color: $primary;
+}
+#grocery, #beauty, #clothes {
+    color: $primary;
+}
+
+.card-footer button {
+    color: white;
+    background: $danger;
+    border: white;   
+}
+.card-footer button:hover {
+    color: white;
+    // text-decoration:underline;
+    border-bottom: $secondary;
+    // font-weight: bold;
+    background:$primary;
+    // transition: str-slice($string: "", $start: -at, $end: -at);
+}
+
+footer{
+    background-color: $danger;
+}
+
+footer p .text-copy {
+    align-content: center;
+}
+
+#clothes {
+    cursor: pointer;
+}
+
+
+
+//checkout
+
+.is-invalid {
+    border: 1px solid red;
+  }
+
+  #error-message {
+    color: red;
+    margin-top: 5px;
+  }
