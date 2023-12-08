@@ -79,14 +79,13 @@ function updateCartCount() {                                                // c
     document.getElementById("count_product").innerHTML = totalCount;
 }
 
-
 // Exercise 1
 function buy(id) {
 
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array
-    
-    let productFound = false;                                                       
+
+    let productFound = false;
 
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].id === id) {
@@ -100,23 +99,23 @@ function buy(id) {
         const foundProduct = { ...products.find(p => p.id === id), quantity: 1 };
         cart.push(foundProduct);
     }
-   
+
     calculateTotal();
     updateCartCount();
-    printCart();                                                  
+    applyPromotionsCart();
+    printCart();
 
-  
-    
+
     function printCart(cart) {
         const cartModal = document.getElementById('cartModal');
         const tableBody = cartModal.querySelector('tbody');
-        tableBody.innerHTML = '';                                                
-     
-}}
+        tableBody.innerHTML = '';
 
+    }
+}
 
 // Exercise 2
-function cleanCart() {                                                             
+function cleanCart() {
 
     cartList = [];
 
@@ -126,44 +125,43 @@ function cleanCart() {
 
     document.getElementById("cart_list").innerHTML = "";
     document.getElementById("count_product").innerHTML = cart.length;
-}                                                                                  
+}
 
 // Exercise 3
-function calculateTotal() {                                                          
+function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
     total = cart.reduce((acc, item) => acc + (item.subtotalWithDiscount ?? item.price * item.quantity), 0);
 
 
-total = isNaN(total) ? 0 : total;
+    total = isNaN(total) ? 0 : total;
 
-document.getElementById('total_price').innerHTML = total.toFixed(2);
-}                                                                                  
-                                                                          
+    document.getElementById('total_price').innerHTML = total.toFixed(2);
+}
 
 // Exercise 4
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
-    //??????????????????????????????????????????????????????????????
-      if (product.offer && product.offer.number && product.offer.percent) {
-        if (product.id === 3 && product.quantity >= product.offer.number) {
-            const discountedQuantity = Math.floor(product.quantity / product.offer.number) * product.offer.number;
-            const undiscountedQuantity = product.quantity - discountedQuantity;
-            const discountedPrice = (product.price * (100 - product.offer.percent)) / 100; // Descuento del 30%
-            product.subtotalWithDiscount = (discountedQuantity * discountedPrice) +
-                (undiscountedQuantity * product.price);
-        } else if (product.id === 1 && product.quantity >= product.offer.number) {
-            const discountedQuantity = product.quantity;
-            const discountedPrice = (product.price * (100 - product.offer.percent)) / 100; // Descuento del 20%
-            product.subtotalWithDiscount = discountedQuantity * discountedPrice;
-        } else {
-            // No se cumple ninguna oferta, aplica el precio normal
-            product.subtotalWithDiscount = product.price * product.quantity;
-        }
-    } else {
-        // El producto no tiene una oferta definida, aplica el precio normal
-        product.subtotalWithDiscount = product.price * product.quantity;
-    }
 
+    total = 0;
+
+    cart.forEach(product => {
+        const quantity = product.quantity;
+        const price = product.price;
+
+        if (product.offer && product.offer.number && product.offer.percent) {
+            const discountedQuantity = Math.floor(quantity / product.offer.number) * product.offer.number;
+            const undiscountedQuantity = quantity - discountedQuantity;
+            const discountedPrice = (price * (100 - product.offer.percent)) / 100;
+            product.subtotalWithDiscount = (discountedQuantity * discountedPrice) + (undiscountedQuantity * price);
+        } else {
+            product.subtotalWithDiscount = price * quantity;
+        }
+
+        total += product.subtotalWithDiscount;
+    });
+
+    total = isNaN(total) ? 0 : total;
+    document.getElementById('total_price').innerHTML = total.toFixed(2);
 
 }
 
@@ -179,7 +177,7 @@ function printCart() {
             <th class="productTitle" scope="row">${item.name}</th>
             <td>${item.price}</td>
             <td>${item.quantity}</td>
-            <td>${item.subtotalWithDiscount !== undefined ? item.subtotalWithDiscount : item.price * item.quantity}</td>
+            <td>${item.subtotalWithDiscount !== undefined ? item.subtotalWithDiscount.toFixed(2) : (item.price * item.quantity).toFixed(2)}</td>
             <td>
             <button type="button" class="btn btn-danger" id="btnRemoveCart" onclick="removeFromCart(${item.id})">Remove</button>
             </td>
@@ -189,32 +187,29 @@ function printCart() {
     });
 
     let cartTotal$ = document.getElementById("total_price");
-   
+
     cartTotal$.innerText = total.toFixed(2);
-   ;
+    ;
 }
 
 // ** Nivell II **
 
 // Exercise 7
-function removeFromCart(id) { 
-     const index = cart.findIndex(item => item.id === id);
+function removeFromCart(id) {
+    const index = cart.findIndex(item => item.id === id);
 
-        if (index != -1) {
-            if (cart[index].quantity > 1) {
-                cart[index].quantity--;  // Reduce la cantidad de uno en uno
-            }else {
-                 cart.splice(index, 1); //Elimina el producto si la cantidad es 1
-            }
-           
-            calculateTotal();
-            updateCartCount();
-            printCart();
+    if (index != -1) {
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+        } else {
+            cart.splice(index, 1);
         }
+        applyPromotionsCart();
+        calculateTotal();
+        updateCartCount();
+        printCart();
     }
-
-
-
+}
 
 function open_modal() {
     printCart();
@@ -223,12 +218,6 @@ function open_modal() {
 
 
 
-
-//  SECTION Logo click
-
-document.getElementById("shopNowLink").addEventListener("click", function() {
-    window.location.href = "/ruta-de-tu-pagina-principal";
-});
 
 
 

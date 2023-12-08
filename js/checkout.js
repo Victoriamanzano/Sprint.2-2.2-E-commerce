@@ -21,7 +21,7 @@ function validate() {
 	
 	// Validate fields entered by the user: name, phone, password, and email
 	
-	function validateField(field, regex, errorElement) {  /* ---> regex  Este parámetro es una expresión regular (RegExp) verificar si el valor del campo cumple con ciertos criterios */
+	function validateField(field, regex, errorElement) {  
         if (field.value === "" || !regex.test(field.value)) {
             field.classList.add("is-invalid");
             field.classList.remove("is-valid");
@@ -66,3 +66,9 @@ function validate() {
 	}
 
 }
+
+
+
+
+
+
