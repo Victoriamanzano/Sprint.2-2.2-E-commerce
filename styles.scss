@@ -13,11 +13,11 @@ header {
 button {
     color: $danger;
 }
-.textheader{
-    color: white;
+// .textheader{
+//     // color: white;
     
-    transition: 7s;
-}
+//     // transition: 7s;
+// }
 .btn-cart {
     background: #5265E1;
 }
@@ -66,3 +66,60 @@ footer p .text-copy {
     color: red;
     margin-top: 5px;
   }
+
+
+  @media (min-width: 1200px) {
+
+    /*S5*/
+    .crd1 {
+        margin-top: 10px;
+        margin-bottom: 60px;
+    }
+
+    .crd2 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .crd3 {
+        margin-top: 60px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (width >=576px) {
+
+    /*S2*/
+    .text-s2 {
+        margin-top: 15px;
+    }
+}
+
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//    .card {
+//         margin-top: 10px;
+//         margin-bottom: 60px;
+//     }
+// }
+ 
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { 
+//     .card {
+//         padding: 20px;
+//         margin-top: 10px;
+//         margin-bottom: 60px;
+//     }
+// }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { 
+
+// }
+
+// // X-Large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { 
+
+// }
+

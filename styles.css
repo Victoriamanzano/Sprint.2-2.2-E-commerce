@@ -11984,11 +11984,6 @@ button {
   color: rgb(233, 4, 145);
 }
 
-.textheader {
-  color: white;
-  transition: 7s;
-}
-
 .btn-cart {
   background: #5265E1;
 }
@@ -12032,4 +12027,26 @@ footer p .text-copy {
 #error-message {
   color: red;
   margin-top: 5px;
+}
+
+@media (min-width: 1200px) {
+  /*S5*/
+  .crd1 {
+    margin-top: 10px;
+    margin-bottom: 60px;
+  }
+  .crd2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .crd3 {
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+}
+@media (width >= 576px) {
+  /*S2*/
+  .text-s2 {
+    margin-top: 15px;
+  }
 }/*# sourceMappingURL=styles.css.map */
