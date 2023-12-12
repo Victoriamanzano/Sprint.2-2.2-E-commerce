@@ -17,7 +17,7 @@ Se trata de una tienda en línea simple construida con HTML, CSS, Sass, Bootstra
 ```
 git clone https://github.com/Victoriamanzano/Sprint.2-2.2-E-commerce.git
 ````
-- Ejecuta **npm install** para instalar todas las dependencias
+- Ejecuta **npm install** para instalar todas las dependencias.
   
 ## Ejecutar el Proyecto
 - Abre el archivo index.html en tu navegador web para ver el eCommerce.
