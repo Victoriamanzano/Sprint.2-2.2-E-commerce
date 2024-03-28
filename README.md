@@ -4,12 +4,7 @@
 <a href="#" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="50" height="50"/></a>
 <a href="#" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" alt="vscode" width="40" height="40"/></a>
 
-#  e-Commerce - Sprint 2 
-
-Este repositorio es la 2a parte del 2º Sprint del curso de programación de Angular en **IT Academy Barcelona**.
-
-Se nos ha entregado con la maquetación hecha y se nos ha pedido que hagamos la lógica, la funcionalidad del carrito y del Checkout,
-a demás de añadir estilos y darle vida!
+#  e-Commerce 
 
  ## Conicimientos: 
 -  HTML
