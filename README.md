@@ -24,7 +24,7 @@
 
 - Clona el repositorio en tu máquina local:
 ```
-git clone https://github.com/Victoriamanzano/Sprint.2-2.2-E-commerce.git
+git clone https://github.com/Victoriamanzano/e-Commerce-.git
 ````
 - Ejecuta **npm install** para instalar todas las dependencias.
   
